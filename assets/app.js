@@ -36,4 +36,14 @@ console.log(rate);
     dateAdded: firebase.database.ServerValue.TIMESTAMP
   });
 
+  dataRef.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
+    var sv = snapshot.val();
+
+    console.log(sv);
+  })
+  // var newEmp = 
+
 })
+
+
+
