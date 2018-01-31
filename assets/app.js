@@ -7,3 +7,33 @@
     messagingSenderId: "769174533846"
   };
   firebase.initializeApp(config);
+
+var database = firebase.database();
+
+var name = "";
+var role = "";
+var start = "";
+var rate = "";
+
+$("#submit").on("click", function(event) {
+	event.preventDefault();
+
+	name = $("#employee").val();
+	role = $("#role").val();
+	start = $("#startDate").val();
+	rate = $("#monthlyRate").val();
+
+console.log(name);
+console.log(role);
+console.log(start);
+console.log(rate);
+
+  database.ref().push({
+    name: name,
+    role: role,
+    start: start,
+    rate: rate,
+    dateAdded: firebase.database.ServerValue.TIMESTAMP
+  });
+
+})
